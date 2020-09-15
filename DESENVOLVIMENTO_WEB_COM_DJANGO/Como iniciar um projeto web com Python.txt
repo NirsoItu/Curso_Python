@@ -1,0 +1,23 @@
+- Virtualenv
+Serve para criar ambientes Python isolados com versões diferentes
+
+*** USE O WINDOWS POWERSHELL ***
+
+- Para criar, escolha uma pasta:
+python -m venv nome_da_virtualenv
+
+- Para ativar a virtualenv
+Voltar na pasta criada
+.\Scripts\activate
+
+- Criar uma pasta para o seu projeto e entrar nela
+
+- instalar o django
+pip install django
+
+- Criar o projeto ao seu gosto
+django-admin startproject nome_do _projeto
+
+_ Abrir o PyCharm
+Em Configurações(Settings) > Digite Interpreter
+Indicar o caminho da virtualenv \Scripts o arquivo python.exe
