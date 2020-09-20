@@ -3,21 +3,102 @@ Serve para criar ambientes Python isolados com versões diferentes
 
 *** USE O WINDOWS POWERSHELL ***
 
-- Para criar, escolha uma pasta:
+>> Para criar, escolha uma pasta:
 python -m venv nome_da_virtualenv
 
-- Para ativar a virtualenv
+>> Para ativar a virtualenv
 Voltar na pasta criada
 .\Scripts\activate
 
-- Criar uma pasta para o seu projeto e entrar nela
+>> Criar uma pasta para o seu projeto e entrar nela
 
-- instalar o django
+>> Instalar o django
 pip install django
 
-- Criar o projeto ao seu gosto
+>> Criar o projeto ao seu gosto
 django-admin startproject nome_do _projeto
 
-_ Abrir o PyCharm
+>> Para iniciar o programa basta dar Run no arquivo manage.py
+
+>> Abrir o PyCharm
 Em Configurações(Settings) > Digite Interpreter
 Indicar o caminho da virtualenv \Scripts o arquivo python.exe
+
+>> Criar a tabela no app
+django-admin startapp nome_da_tabela (geralmente coloque nome core)
+
+>> No arquivo setting em INSTALLED_APPS inserir o nome do app criado acima
+
+>> Criar metodos (arquivo viwes) e rotas necessárias (arquivo urls)
+
+>> Criar as tabelas padrões do Django Admin
+python manage.py migrate
+
+>> Criar as tabelas padrões do Django Admin
+python manage.py createsuperuser --username nome_do_usuario
+
+Inserir e-mail e senha
+Usuario não staff não tem acesso a pagina de admin
+Criar um grupo com politicas conforme necessidade de politica de permissões
+(Visualização, Gravação, etc)
+
+>> Criar uma classe no arquivo Models
+
+class Evento(models.Model):
+    titulo = models.CharField(max_length=100, verbose_name='Título')
+    descricao = models.TextField(blank=True, null=True, verbose_name='Descrição')
+    data_evento = models.DateTimeField(verbose_name='Data do Evento')
+    data_criacao = models.DateTimeField(auto_now=True, verbose_name='Data de Criação')
+
+    # Permitir a criação de uma tabela de evento para cada usuário
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # Exigir que a tabela se chame evento
+    class Meta:
+        db_table = 'evento'
+
+    # Retorna o nome do evento na listagem da table
+    def __str__(self):
+        return self.titulo
+
+    # Formatando a data do evento
+    def get_data_evento(self):
+        return self.data_evento.strftime('%d/%m/%Y - %H:%M hs')
+
+>> Criar classe com models e migrar ao Banco de dados
+python manage.py makemigrations nome_da_classe
+
+Irá criar um arquivo (Ex: 0001) com os scrips necessarios
+
+>> Fazer o migrate do arquivo para o banco de dados
+python manage.py sql migrate nome_da_classe_criada
+
+>> Ou fazer somente do arquivo desejado
+python manage.py aql migrate nome_da_classe_criada 0001
+
+>> Alterar tabela e replicar no Banco de Dados
+
+>> Trocar o TIMEZONE
+No arquivo Settings mudar o LANGUAGE_CODE para pt-br
+Mudar o TIME_ZONE para Americas/Sao_Paulo 
+USE_TZ = False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
