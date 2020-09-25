@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/projeto_api_atividades_bd.iml" filepath="$PROJECT_DIR$/.idea/projeto_api_atividades_bd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/projeto_api_atividades_bd_autenticacao_completo.iml" filepath="$PROJECT_DIR$/.idea/projeto_api_atividades_bd_autenticacao_completo.iml" />
     </modules>
   </component>
 </project>
