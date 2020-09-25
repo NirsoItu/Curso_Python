@@ -1,0 +1,39 @@
+Usar o sqllite sempre para persistência de dados
+
+- Virtualenv
+Serve para criar ambientes Python isolados com versões diferentes
+
+*** USE O WINDOWS POWERSHELL ***
+
+>> Para criar, escolha uma pasta:
+python -m venv nome_da_virtualenv
+
+>> Para ativar a virtualenv
+Voltar na pasta criada
+.\Scripts\activate
+
+>> Criar uma pasta para o seu projeto dentro da sua virtualenv e entrar nela
+
+>> Instalar o falsk
+pip install sqlalchemy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

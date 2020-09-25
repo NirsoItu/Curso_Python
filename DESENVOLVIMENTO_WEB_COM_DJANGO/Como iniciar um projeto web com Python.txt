@@ -83,6 +83,10 @@ No arquivo Settings mudar o LANGUAGE_CODE para pt-br
 Mudar o TIME_ZONE para Americas/Sao_Paulo 
 USE_TZ = False
 
+>> Retirar mensagens de erros do modo debug
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+
 
 
 
